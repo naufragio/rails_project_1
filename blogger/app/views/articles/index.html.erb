@@ -1,0 +1,44 @@
+<h1>All Articles</h1>
+
+<ul id="articles">
+  <% @articles.each do |article| %> 
+    <li>
+      <%= link_to article.title, article_path(article) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Create a New Article", new_article_path, class: "new_article" %>
+
+
+<!--  
+
+variabile @articles  definita nel controller (articles_controller.rb)
+
+
+http://tutorials.jumpstartlab.com/projects/blogger.html#i5:-authentication
+capitolo uno a partire da" Creating the Template "
+
+Now you’re looking at a blank file. Enter in this view template code which is a mix of HTML and what are called ERB tags (vedi link)
+
+questa e' la VIEW (MVC)
+per capire come funziona devi lanciare nel terminal rake routes que te saca todas las routes de tu aplicacion
+luego dici:
+per ogni articolo fammi:
+link_to article.title che significa creami un link dove la scritta che si vede e' il titolo dell'articolo
+e quando clicchi sul link mi mandera' alla ruta "article". questa ruta la vedi tra le rake routes.
+e' la ruta dove a sx hai scritto "article" e per chiamarla si fa cosi':
+nome ruta_path(eventuali parametri)
+nel nostro caso la ruta si chiama "article" (il nome che vedi a sx nel terminal)
+e il parametro e' il parametro "id" (quando hai creato gli articoli in automatico rails associa ad ogni articolo un id). in rake routes capisci ke per andare a quella ruta serve un parametri id, c'e`scritto
+
+mentre in fondo diciamo fammi un link sulla frase  "Create a New Article" e vogliamo che questo link mandi
+al path della ruta new_Article (che non ha nessun parametro)
+
+nella rake routes vedi che a destra in fondo hai l'azione (show, index, destroy, create ecc)
+finche' non definiamo questa azione quando clicchiamo nei link creati ci dara' degli errori
+(Creating the SHOW Action)
+An "action" is just a method of the controller. Here we’re talking about the ArticlesController, so our next step is to open app/controllers/articles_controller.rb and add a show method
+
+
+-->
