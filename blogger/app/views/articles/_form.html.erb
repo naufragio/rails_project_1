@@ -1,0 +1,35 @@
+<%= form_for(@article) do |f| %>
+  <ul>
+  <% @article.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %> <!--questo crea automaticamente il pulsante finale della form Create Article)-->
+  </p>              <!--oppure il pulsante Update Article se clicchi "edit" -->
+<% end %>
+
+ <!--la figata e' che se te stai chiamando la def edit piuttosto che la def create Rails sa gia' un tot
+ di cose in maniera predefinita. per esempio ti gia' la form avra' il pulsante update o il pulsante create
+ e tantissime altre cose che sono gia' fatte per te utilizzando queste routing predefinite.
+ e' uno dei vantaggi di rails, ti toglie tanto lavoro-->
+
+<!--variabile @article  definita nel controller (articles_controller.rb)-->
+
+
+<!--
+
+per elaborare cio' che inserisci nell form ce bisogno di un metodo "create" secondo la condizione rest.
+new e' per farne uno nuovo, create per crearlo da form
+"Rails’ interpretation of REST uses a second action named create to process the data from that form"
+(andiamo a aggiungere def create nel controller)
+questo metodo create ovviamente lo mettiamo nel controller
+-->

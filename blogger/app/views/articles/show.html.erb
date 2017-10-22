@@ -1,3 +1,49 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.body %></p>
 <%= link_to "<< Back to Articles List", articles_path %>
+<%= link_to "elimina", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"}
+%>
+<%= link_to "edit", edit_article_path(@article) %>
+
+
+
+
+
+<!--variabile @article  definita nel controller (articles_controller.rb)
+
+
+
+
+Deleting Articles
+We can create articles and we can display them, but when we eventually deliver this to less perfect people than us, they’re going to make mistakes. There’s no way to remove an article, let’s add that next.
+
+We could put delete links on the index page, but instead let’s add them to the show.html.erb template. Let’s figure out how to create the link.
+
+We’ll start with the link_to helper, and we want it to say the word "delete" on the link. So that’d be:
+
+
+< link_to delete, some_path %>
+But what should some_path be? Look at the routes table with rake routes. The destroy action will be the last row, but it has no name in the left column. In this table the names "trickle down," so look up two lines and you’ll see the name article.
+
+The helper method for the destroy-triggering route is article_path.
+ It needs to know which article to delete since there’s an :id in the path, so our link will look like this:
+
+link_to "delete", article_path(@article) (Tra parentesi passi l'ID)
+
+cioe' tra le rute sei andato a cercare destroy, hai visto che a sx non ha nessun prefisso, quindi sei
+salito finche' non hai trovato il primo prefisso che e' article e quindi usi article_path come ruta per fare destroy
+
+
+xke pero dobbiamo aggiungere method delete alla fine? xke se guardi il prefisso che hai usato
+(article) questo sta utilizzando un verbo "GET" te vuoi usare destroy quindi defi forzare te il 
+verbo "DELETE" (method: :delete) altrimenti il sistema di esegue l'azione show invece dell'azione destroy
+(xke per difetto l'azione associata al path article e' la corrispondente, nel caso e' GET (lo vedi dalla
+tabella delle routes.))
+
+destroy e' il metodo che devi creare nel controller.  delete e' il verb che forzi qua nella vista
+
+
+
+data: {confirm: "Really delete the article?"}
+This will pop up a JavaScript dialog when the link is clicked. The Cancel button will stop the request, while the OK button will submit it for deletion.
+-->

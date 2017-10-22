@@ -1,0 +1,8 @@
+<h1>Edit an Article</h1>
+
+<%= render partial: 'form' %>
+
+
+<!--
+In the Ruby community there is a mantra of "Don’t Repeat Yourself" – but that’s exactly what I’ve done here. This view is basically the same as the new.html.erb – the only change is the H1. We can abstract this form into a single file called a partial, then reference this partial from both new.html.erb and edit.html.erb.
+-->

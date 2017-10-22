@@ -3,11 +3,13 @@
 #end
 
 Blogger::Application.routes.draw do
-  resources :articles
+	root to: 'articles#index' #questa riga per il pargrafo An Aside on the Site Root
+	resources :articles
 end
 
 =begin
-
+Previously, we set up the resources :articles route in routes.rb, and that told Rails that 
+we were going to follow the RESTful conventions for this model named Article
 
 Setting up the Router
 http://tutorials.jumpstartlab.com/projects/blogger.html#i5:-authentication

@@ -1,0 +1,26 @@
+
+<h1>Create a New Article</h1>
+
+<%= render partial: 'form' %>
+
+
+
+<!--
+
+Creating a Form Partial
+
+Partials are a way of packaging reusable view template code. We’ll pull the common parts out from the form into the partial, then render that partial from both the new template and the edit template.
+
+Create a file app/views/articles/_form.html.erb and, yes, it has to have the underscore at the beginning of the filename. Partials always start with an underscore.
+
+Open your app/views/articles/new.html.erb and CUT all the text from and including the form_for line all the way to its end. The only thing left will be your H1 line.
+
+
+
+
+Why the name new.html.erb? The first piece, new, matches the name of the controller method. The second, html, specifies the output format sent to the client. The third, erb, specifies the language the template is written in. Under different circumstances, we might use new.json.erb to output JSON or new.html.haml to use the HAML templating language.-
+
+
+
+
+-->
